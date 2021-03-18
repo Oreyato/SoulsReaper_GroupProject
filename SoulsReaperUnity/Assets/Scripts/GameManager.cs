@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 
     void Update() //Pause the Game 
     {
-        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0)
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
         {
             Time.timeScale = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 0)
+        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
