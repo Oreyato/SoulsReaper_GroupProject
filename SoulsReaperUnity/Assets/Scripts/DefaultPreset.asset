@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbe22691784b6e429ad36d894302087, type: 3}
+  m_Name: DefaultPreset
+  m_EditorClassIdentifier: 
+  AmbientColor:
+    serializedVersion: 2
+    key0: {r: 0.2392157, g: 0.32941177, b: 0.8980393, a: 1}
+    key1: {r: 0.75294125, g: 0.6901961, b: 0.58431375, a: 1}
+    key2: {r: 0.8705883, g: 0.8705883, b: 0.8705883, a: 0}
+    key3: {r: 0.8705883, g: 0.8705883, b: 0.8705883, a: 0}
+    key4: {r: 0.75294125, g: 0.69411767, b: 0.49411768, a: 0}
+    key5: {r: 0.19215688, g: 0.30588236, b: 0.909804, a: 0}
+    key6: {r: 0.19215688, g: 0.30588236, b: 0.909804, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 12722
+    ctime1: 21588
+    ctime2: 26792
+    ctime3: 39321
+    ctime4: 44718
+    ctime5: 53777
+    ctime6: 53777
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  DirectionalColor:
+    serializedVersion: 2
+    key0: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 1}
+    key1: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+    key2: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 0}
+    key3: {r: 0.98823535, g: 0.98823535, b: 0.98823535, a: 0}
+    key4: {r: 0.9725491, g: 0.9725491, b: 0.9725491, a: 0}
+    key5: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 0}
+    key6: {r: 0.32156864, g: 0.32156864, b: 0.32156864, a: 0}
+    key7: {r: 0.015686275, g: 0.011764707, b: 0.011764707, a: 0}
+    ctime0: 4433
+    ctime1: 14264
+    ctime2: 20817
+    ctime3: 28527
+    ctime4: 38357
+    ctime5: 45682
+    ctime6: 52814
+    ctime7: 60524
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
