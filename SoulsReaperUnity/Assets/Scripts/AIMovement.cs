@@ -11,6 +11,8 @@ public class AIMovement : MonoBehaviour
     public Transform goal;
 
     public Transform fleeZone;
+
+    public float flee = 10f;
  
     void Awake() 
     {
