@@ -11,6 +11,8 @@ public class AIMovement : MonoBehaviour
     public Transform goal;
 
     public Transform fleeZone;
+
+    public bool IsDeathZone = false;
  
     void Awake() 
     {
@@ -18,9 +20,13 @@ public class AIMovement : MonoBehaviour
         agent.destination = goal.position;
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collider)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = fleeZone.position;
+        if (collider.gameObject.tag == "DestroyAI")
+        {
+            Destroy(gameObject);
+        }
     }
 }
