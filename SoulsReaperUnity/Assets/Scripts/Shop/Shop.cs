@@ -37,15 +37,16 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < lItems; i++)
         {
             g = Instantiate(ItemTemplate,ShopScrollView);
-            l = g.GetComponent<ItemInfos>().itemInfos;
+            //l = g.GetComponent<ItemInfos>().itemInfos;
 
             //donner chaque composant à la liste
             //ou dupliquer listes
+            /*
             foreach (var info in itemsDBCopy)
             {
                 
             }
-
+            */
             //g.GetComponent<ItemInfos>().itemInfos = itemsDBCopy[i];
 
             //g.transform.GetChild(0).GetComponent<Image>().sprite = itemsDBCopy[i].Image;
