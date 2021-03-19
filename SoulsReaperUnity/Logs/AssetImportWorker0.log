@@ -168,3 +168,4 @@ Received Import Request.
 Start importing Assets/Materials/wood texture.jpg using Guid(10b91cd65282d32418cb41d6f606e3d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85c5ca91868b483ff76cfb31c0e6fb57') in 0.015402 seconds
   Import took 0.018138 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
