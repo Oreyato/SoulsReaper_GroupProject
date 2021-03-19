@@ -16,8 +16,8 @@ public class Spawn : MonoBehaviour
 
     void SpawnAgent()
     {
-        GameObject na = (GameObject) Instantiate(nagent, this.transform.position, Quaternion.identity);
-        na.GetComponent<AIMovement>().goal = goalObject.transform;
+       GameObject na = (GameObject) Instantiate(nagent, this.transform.position, Quaternion.identity);
+       na.GetComponent<AIMovement>().goal = goalObject.transform;
         
         Invoke("SpawnAgent", Random.Range(1,10));
     }
