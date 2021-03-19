@@ -151,3 +151,27 @@ Received Import Request.
 Start importing Assets/Scripts/Shop/ItemInfos.cs using Guid(f74cbb775c35b3149bab65dd0b5dd2e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '513d5ad0b4c506b32279e95553f2f826') in 0.005341 seconds
   Import took 0.007531 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000548 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.838 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1121 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.5 MB.
+System memory in use after: 57.6 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1577.
+Total: 1.632400 ms (FindLiveObjects: 0.123300 ms CreateObjectMapping: 0.033700 ms MarkObjects: 1.460400 ms  DeleteObjects: 0.013600 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
