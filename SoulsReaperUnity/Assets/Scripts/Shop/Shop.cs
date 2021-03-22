@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     #region Init
-    private List<Items> itemsDBCopy;
+    public List<Items> itemsDBCopy;
     private List<Skills> skillsDBCopy;
     private List<Terror> terrorDBCopy;
 
@@ -51,6 +51,16 @@ public class Shop : MonoBehaviour
             g.transform.GetChild(2).GetComponent<Button>().interactable = itemsDBCopy[i].Unlocked;
             g.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = itemsDBCopy[i].Cost.ToString() + " souls";
         }
+
+        /*
+        itemsDBCopy[1].Name = "Testing";
+        g.transform.GetChild(1).GetComponent<Text>().text = itemsDBCopy[1].Name;
+
+        > change the name of the last item only (quite expected)
+
+        What we're looking for now:
+            accessing each item's list, changing it! 
+        */
 
         Destroy(ItemTemplate);
     }

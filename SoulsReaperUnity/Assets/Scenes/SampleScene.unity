@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26.498245, y: -81.7027}
+  m_AnchoredPosition: {x: 26.498291, y: -81.7027}
   m_SizeDelta: {x: 160.10449, y: 46.83618}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &16655868
@@ -562,7 +562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.0001, y: 0.00033569}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &447039553
@@ -1015,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &623142177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,6 +1055,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &623142179
 Canvas:
   m_ObjectHideFlags: 0
@@ -1416,7 +1417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.7000122, y: -34.100006}
+  m_AnchoredPosition: {x: 1.6999512, y: -34.099976}
   m_SizeDelta: {x: -29.6157, y: -88.2774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872289181
@@ -1532,17 +1533,17 @@ PrefabInstance:
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
@@ -1582,12 +1583,12 @@ PrefabInstance:
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 385.1921
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921467618968693431, guid: 466ef075e4c61d04782c5263285978d4,
         type: 3}
@@ -1754,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2006,6 +2008,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1197945292
@@ -2168,7 +2171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -163.56042}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1366086685
 MonoBehaviour:
@@ -2677,6 +2680,7 @@ GameObject:
   - component: {fileID: 1809255598}
   - component: {fileID: 1809255597}
   - component: {fileID: 1809255599}
+  - component: {fileID: 1809255600}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -2756,7 +2760,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8187b38804937bf4eb8558fc46745bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsDBCopy: []
+  shopDatabase: {fileID: 1809255600}
   ShopScrollView: {fileID: 1366086684}
+--- !u!114 &1809255600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809255595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e35d98a902d454eb45a28f3f846ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsDB:
+  - Type: 1
+  - Type: 1
+  - Type: 1
+  - Type: 1
+  - Type: 1
+  - Type: 1
+  skillsDB:
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  - Type: 2
+  terrorDB:
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  - Type: 3
+  idInfos: 'Ids: 1 + three numbers > items'
+  idInfos2: 2 > skills | 3 > terror
 --- !u!1 &1953035727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,6 +2867,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1953035730
 Canvas:
   m_ObjectHideFlags: 0
@@ -3131,32 +3184,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
         type: 3}
-      propertyPath: m_Acceleration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
-        type: 3}
-      propertyPath: avoidancePriority
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
-        type: 3}
-      propertyPath: m_AutoRepath
+      propertyPath: m_Radius
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
         type: 3}
-      propertyPath: m_AutoTraverseOffMeshLink
+      propertyPath: m_AutoRepath
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
@@ -3171,7 +3204,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
         type: 3}
-      propertyPath: m_Radius
+      propertyPath: m_Acceleration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
+        type: 3}
+      propertyPath: avoidancePriority
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411924636365905197, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
+        type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185701534448585734, guid: 7c58cd9bb2c50d34994ecce2d3828e33,
