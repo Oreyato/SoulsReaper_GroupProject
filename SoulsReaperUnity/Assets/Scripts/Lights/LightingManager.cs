@@ -5,7 +5,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
 
-    private float TimeOfDay;
+    public float TimeOfDay;
 
     [SerializeField] private GameObject gManager;
     private float dayCd = 5f;

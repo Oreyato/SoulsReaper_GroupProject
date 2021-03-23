@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Phases : MonoBehaviour
 {
     #region Variables
-    public Text timerText;
-    public Text dayText;
+    [SerializeField] private Text timerText;
+    [SerializeField] private Text dayText;
+    [SerializeField] private RawImage clock;
 
     public float phasesCd = 60f;
 
