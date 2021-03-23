@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopDatabase : MonoBehaviour
 {
     #region Items List
-    [SerializeField] private List<Items> itemsDB = new List<Items>
+    public List<Items> itemsDB = new List<Items>
     {
         //new Items {Name = "", Cost = f, Limit = , Unlocked = , Id = }, 
         //Default: Type = 1 && Placed = False
@@ -20,7 +20,7 @@ public class ShopDatabase : MonoBehaviour
     #endregion
     #region Skills List
 
-    [SerializeField] private List<Skills> skillsDB = new List<Skills>
+    public List<Skills> skillsDB = new List<Skills>
     {
         //new Skills {Name = "", Cost = f, Multiplier = f, Limit = , Unlocked = , Id = },
         //Default: Type = 2 
@@ -43,7 +43,7 @@ public class ShopDatabase : MonoBehaviour
 
     #endregion
     #region Terror List
-    [SerializeField] private List<Terror> terrorDB = new List<Terror>
+    public List<Terror> terrorDB = new List<Terror>
     {
         //new Terror {Name = "", Cost = f, Multiplier = , Limit = , Id = },
         //Default: Type = 3
