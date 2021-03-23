@@ -5,7 +5,17 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
 
-    [SerializeField, Range(0,24)] private float TimeOfDay;
+    private float TimeOfDay;
+
+    [SerializeField] private GameObject gManager;
+    private float dayCd = 5f;
+
+    private void Start()
+    {
+        dayCd = gManager.GetComponent<Phases>().phasesCd *2;
+        TimeOfDay = dayCd/1.355f;
+    }
+
 
     private void Update() 
     {
@@ -17,12 +27,12 @@ public class LightingManager : MonoBehaviour
         if(Application.isPlaying)
         {
             TimeOfDay += Time.deltaTime;
-            TimeOfDay %= 24;
-            UpdateLighting(TimeOfDay / 24f);
+            TimeOfDay %= dayCd;
+            UpdateLighting(TimeOfDay / dayCd);
         }
         else
         {
-            UpdateLighting(TimeOfDay / 24f);
+            UpdateLighting(TimeOfDay / dayCd);
         }
     }
 
