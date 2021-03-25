@@ -11,6 +11,7 @@ public class ItemInfos : MonoBehaviour
         //Adding this somehow allows me to dodge this error:
             //ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. Parameter name: index
         itemInfos.Add(new Items() {Type = 0, Name = "Null", Cost = 0f, Limit = 0, Unlocked = false, Placed = false, Id = 0000});
+
     }
 
     void Start() {
