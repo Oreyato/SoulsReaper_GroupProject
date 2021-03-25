@@ -36,32 +36,17 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < lItems; i++)
         {
             g = Instantiate(ItemTemplate,ShopScrollView);
+            var iInfos = g.GetComponent<ItemInfos>().itemInfos[0];
 
-            //donner chaque composant à la liste
-            //ou dupliquer listes
-            foreach (var info in itemsDBCopy)
-            {
-                
-            }
-
-            //g.GetComponent<ItemInfos>().itemInfos = itemsDBCopy[i];
-
-            //g.transform.GetChild(0).GetComponent<Image>().sprite = itemsDBCopy[i].Image;
-            g.transform.GetChild(1).GetComponent<Text>().text = itemsDBCopy[i].Name;
-            g.transform.GetChild(2).GetComponent<Button>().interactable = itemsDBCopy[i].Unlocked;
-            g.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = itemsDBCopy[i].Cost.ToString() + " souls";
+            //There surely is a better way to do this, but it works...
+            iInfos.Type = itemsDBCopy[i].Type;
+            iInfos.Name = itemsDBCopy[i].Name;
+            iInfos.Cost = itemsDBCopy[i].Cost;
+            iInfos.Limit = itemsDBCopy[i].Limit;
+            iInfos.Unlocked = itemsDBCopy[i].Unlocked;
+            iInfos.Placed = itemsDBCopy[i].Placed;
+            iInfos.Id = itemsDBCopy[i].Id;
         }
-
-        /*
-        itemsDBCopy[1].Name = "Testing";
-        g.transform.GetChild(1).GetComponent<Text>().text = itemsDBCopy[1].Name;
-
-        > change the name of the last item only (quite expected)
-
-        What we're looking for now:
-            accessing each item's list, changing it! 
-        */
-
         Destroy(ItemTemplate);
     }
 }
