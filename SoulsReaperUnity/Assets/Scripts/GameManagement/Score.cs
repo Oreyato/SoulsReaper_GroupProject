@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public GameObject scoreText;
-    public static int theScore;
+    public static float Souls = 10000;
 
     void Update() 
     {
-        scoreText.GetComponent<Text>().text = "Score: " + theScore;
+        scoreText.GetComponent<Text>().text = "Souls: " + Souls;
     }
 }
