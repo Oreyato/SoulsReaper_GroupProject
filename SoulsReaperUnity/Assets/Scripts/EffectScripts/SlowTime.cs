@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Collecting : MonoBehaviour
+public class SlowTime : MonoBehaviour
 {
+    public float speed = 8f;
 
     void OnTriggerEnter(Collider other) 
     {
-        Score.Souls += 1;
-        Destroy(gameObject);
+        Time.timeScale = 0.25f;
+    
     }
 }
+    
