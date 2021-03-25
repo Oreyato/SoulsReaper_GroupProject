@@ -56,7 +56,7 @@ public class Phases : MonoBehaviour
         string seconds = (onScreenTr % 60).ToString("00");
 
         timerText.text = "Duration: " + minutes + ":" + seconds;
-        dayText.text = "Day: " + dayNumber.ToString();
+        dayText.text = "Day: " + dayNumber.ToString("00");
     }
 
     #endregion

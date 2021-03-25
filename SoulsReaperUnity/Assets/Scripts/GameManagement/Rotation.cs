@@ -12,7 +12,7 @@ public class Rotation : MonoBehaviour
     private float dayCd = 0f;
 
     private void Start() {
-        gameObject.transform.eulerAngles = new Vector3(0f,0f,rot+180);
+        gameObject.transform.eulerAngles = new Vector3(0f,0f,rot);
     }
 
     private void Update() {
@@ -20,6 +20,6 @@ public class Rotation : MonoBehaviour
         dayCd = gManager.GetComponent<Phases>().phasesCd;
 
         rot = timeOfDay * 180 / dayCd;
-        gameObject.transform.eulerAngles = new Vector3(0f,0f,rot+180);
+        gameObject.transform.eulerAngles = new Vector3(0f,0f,rot);
     }
 }
