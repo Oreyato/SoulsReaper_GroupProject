@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody player;
 
     public float DelayFear = 2.0f;
-
     public bool IsFear = false;
 
     void Start()
