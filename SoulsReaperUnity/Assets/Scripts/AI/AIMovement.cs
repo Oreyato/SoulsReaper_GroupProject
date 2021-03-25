@@ -22,8 +22,12 @@ public class AIMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.destination = fleeZone.position;
+        if (collider.gameObject.tag == "Player")
+        {
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.destination = fleeZone.position;
+        }
+
         if (collider.gameObject.tag == "DestroyAI")
         {
             Destroy(gameObject);
