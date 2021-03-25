@@ -8,7 +8,7 @@ public class Collecting : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        Score.theScore += 1;
+        Score.Souls += 1;
         Destroy(gameObject);
     }
 }

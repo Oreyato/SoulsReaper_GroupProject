@@ -48,5 +48,35 @@ public class Shop : MonoBehaviour
             iInfos.Id = itemsDBCopy[i].Id;
         }
         Destroy(ItemTemplate);
+/*
+        for (int i = 0; i < lSkills; i++)
+        {
+            g = Instantiate(ItemTemplate,ShopScrollView);
+            var sInfos = g.GetComponent<SkillInfos>().skillInfos[0];
+
+            //There surely is a better way to do this, but it works...
+            sInfos.Type = itemsDBCopy[i].Type;
+            sInfos.Name = skillsDBCopy[i].Name;
+            sInfos.Cost = skillsDBCopy[i].Cost;
+            sInfos.Multiplier = skillsDBCopy[i].Multiplier;
+            sInfos.Limit = skillsDBCopy[i].Limit;
+            sInfos.Unlocked = skillsDBCopy[i].Unlocked;
+            sInfos.Id = skillsDBCopy[i].Id;
+        }
+
+        for (int i = 0; i < lTerror; i++)
+        {
+            g = Instantiate(ItemTemplate,ShopScrollView);
+            var tInfos = g.GetComponent<TerrorInfos>().terrorInfos[0];
+
+            //There surely is a better way to do this, but it works...
+            tInfos.Type = terrorDBCopy[i].Type;
+            tInfos.Name = terrorDBCopy[i].Name;
+            tInfos.Cost = terrorDBCopy[i].Cost;
+            tInfos.Multiplier = terrorDBCopy[i].Multiplier;
+            tInfos.Limit = terrorDBCopy[i].Limit;
+            tInfos.Id = terrorDBCopy[i].Id;
+        }
+*/
     }
 }
