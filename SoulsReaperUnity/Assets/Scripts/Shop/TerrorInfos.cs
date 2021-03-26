@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillInfos : MonoBehaviour
+public class TerrorInfos : MonoBehaviour
 {   
     public List<Terror> terrorInfos = new List<Terror>();
     

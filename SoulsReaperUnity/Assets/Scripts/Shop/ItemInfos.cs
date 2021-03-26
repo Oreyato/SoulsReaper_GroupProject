@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemInfos : MonoBehaviour
-
 {   
     public List<Items> itemInfos = new List<Items>();
     
