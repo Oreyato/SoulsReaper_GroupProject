@@ -12,11 +12,43 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsFear = false;
 
+    public GameObject ShopPanel;
+    public float DelayOpen = 1.0f;
+    public bool IsOpenShop;
+    public bool IsDelay;
+
     void Start()
     {
         player = GetComponent<Rigidbody>();
         GetComponent<SphereCollider>().enabled = false;
         IsFear = false;
+        IsOpenShop = false;
+        IsDelay = false;
+        DelayOpen = 1.0f;
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Shop")
+        {
+            Debug.Log(IsOpenShop);
+            if (Input.GetKeyDown(KeyCode.E) && !IsOpenShop)
+            {
+                OpenShop();
+                DelayOpen = 1.0f;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.E) && IsOpenShop)
+            {
+                CloseShop();
+            }
+            
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        CloseShop();
     }
 
 
@@ -40,9 +72,31 @@ public class PlayerMovement : MonoBehaviour
 
         if (DelayFear <= 0.0f)
         {
-            GetComponent<SphereCollider>().enabled = false;
             DelayFear = 0.0f;
-            IsFear = false;
+            IsFear = true;
         }
+        if (IsDelay)
+        {
+            DelayOpen -= Time.deltaTime;
+        }
+
+        if (DelayOpen <= 0.0f)
+        {
+            DelayOpen = 0.0f;
+            IsOpenShop = true;
+        }
+
+    }
+
+    public void OpenShop()
+    {
+        ShopPanel.SetActive(true);
+        IsDelay = true;
+    }
+
+    public void CloseShop()
+    {
+        ShopPanel.SetActive(false);
+        IsOpenShop = false;
     }
 }
