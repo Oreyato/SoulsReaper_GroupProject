@@ -29,13 +29,11 @@ public class ShopDatabase : MonoBehaviour
         new Skills {Name = "Attack Speed", Cost = 10f, Multiplier = 1.5f, Limit = 10, Unlocked = true, Id = 2000},
         new Skills {Name = "Attack Range", Cost = 10f, Multiplier = 1.5f, Limit = 10, Unlocked = true, Id = 2001},
         new Skills {Name = "Speed", Cost = 20f, Multiplier = 2f, Limit = 10, Unlocked = true, Id = 2002},
-        new Skills {Name = "Space", Id = 9999}, //separation when displaying the list 
 
         //Special Skills
         new Skills {Name = "Dash", Cost = 200f, Multiplier = 3f, Limit = 3, Id = 2100},
         new Skills {Name = "Area", Cost = 250f, Multiplier = 3f, Limit = 3, Id = 2101}, //ToDo - nom à définir
         new Skills {Name = "Pew", Cost = 300f, Multiplier = 3f, Limit = 3, Id = 2102}, //ToDo - nom à définir
-        new Skills {Name = "Space", Id = 9999},
 
         //Collect related Skills
         new Skills {Name = "Spawn Count", Cost = 100f, Multiplier = 2f, Limit = 5, Id = 2200}  
@@ -60,11 +58,9 @@ public class ShopDatabase : MonoBehaviour
 
         new Terror {Name = "Cemetery Unlock", Cost = 10f, Multiplier = 0, Limit = 1, Id = 3020},
         new Terror {Name = "Tombstone", Cost = 10f, Multiplier = 0, Limit = 1, Id = 3021},
-        new Terror {Name = "Space", Id = 9999},
 
         //Temporary buffs
         new Terror {Name = "Soul Spawn Boost", Cost = 10f, Limit = 1, Id = 3100},
-        new Terror {Name = "Space", Id = 9999},
 
         //Permanent buffs
 //        new Terror {Name = "Max HP", Cost = 10f, Multiplier = 5, Limit = 3, Id = 3200},
@@ -84,10 +80,7 @@ public class ShopDatabase : MonoBehaviour
         Debug.Log("Items List: =====================");
         foreach (var item in itemsDB)
         {
-            if (item.Id == 9999) {
-                Debug.Log(" ");
-            }
-            else Debug.Log(item.Name + ": Costs " + item.Cost + " souls and it can be used " + item.Limit + " times  || Dev infos: unlockable: " + item.Unlocked  + ", placed: " + item.Placed + ", item ID: " + item.Id);
+            Debug.Log(item.Name + ": Costs " + item.Cost + " souls and it can be used " + item.Limit + " times  || Dev infos: unlockable: " + item.Unlocked  + ", placed: " + item.Placed + ", item ID: " + item.Id);
         }
         Debug.Log("=================================");
     }
@@ -97,10 +90,7 @@ public class ShopDatabase : MonoBehaviour
         Debug.Log("Skills List: =====================");
         foreach (var item in skillsDB)
         {
-            if (item.Id == 9999) {
-                Debug.Log(" ");
-            }
-            else Debug.Log(item.Name + ": Costs " + item.Cost + " souls, multiplier: " + item.Multiplier + " and it can be used " + item.Limit + " times || Dev infos: unlockable: " + item.Unlocked + ", item ID: " + item.Id);
+            Debug.Log(item.Name + ": Costs " + item.Cost + " souls, multiplier: " + item.Multiplier + " and it can be used " + item.Limit + " times || Dev infos: unlockable: " + item.Unlocked + ", item ID: " + item.Id);
         }
         Debug.Log("=================================");
     }
@@ -110,10 +100,7 @@ public class ShopDatabase : MonoBehaviour
         Debug.Log("Terror List: =====================");
         foreach (var item in terrorDB)
         {
-            if (item.Id == 9999) {
-                Debug.Log(" ");
-            }
-            else Debug.Log(item.Name + ": Costs " + item.Cost + " souls, multiplier: " + item.Multiplier + " and it can be used " + item.Limit + " times || Dev infos: item ID: " + item.Id);
+            Debug.Log(item.Name + ": Costs " + item.Cost + " souls, multiplier: " + item.Multiplier + " and it can be used " + item.Limit + " times || Dev infos: item ID: " + item.Id);
         }
         Debug.Log("=================================");
     }

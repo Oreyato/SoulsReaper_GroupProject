@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TerrorInfos : MonoBehaviour
+public class SkillInfos : MonoBehaviour
 {   
+
     public List<Skills> skillsInfos = new List<Skills>();
     
     private int buy = 0;
