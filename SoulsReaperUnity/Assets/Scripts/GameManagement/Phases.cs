@@ -29,6 +29,7 @@ public class Phases : MonoBehaviour
     private float sZ = 0f;
     private float soulHeight = 0f;
 
+
     #endregion
     #region Unity Methods
     void Awake() {
@@ -39,6 +40,7 @@ public class Phases : MonoBehaviour
         sZ = sSpawner.transform.position.z;
 
         soulHeight = soul.transform.position.y;
+
     }
 
     void Update(){
@@ -99,6 +101,11 @@ public class Phases : MonoBehaviour
     }
 
     void SouslsDispawn() {
+
+    }
+
+    void SpawnAgent()
+    {
 
     }
 
