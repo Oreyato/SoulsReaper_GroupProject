@@ -4550,7 +4550,7 @@ GameObject:
   - component: {fileID: 872289182}
   - component: {fileID: 872289181}
   m_Layer: 5
-  m_Name: ScrollView_ShopItems
+  m_Name: PreviousVersion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
