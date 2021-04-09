@@ -28,9 +28,7 @@ public class Shop : MonoBehaviour
         itemsDBCopy = shopDatabase.itemsDB;
         skillsDBCopy = shopDatabase.skillsDB;
         terrorDBCopy = shopDatabase.terrorDB;
-    }
-
-    void Start(){
+  
         #region Items
 
         itemsTemplate = itemsOrganization.GetChild(0).gameObject;
@@ -63,7 +61,6 @@ public class Shop : MonoBehaviour
             g = Instantiate(skillsTemplate,skillsOrganization);
             var sInfos = g.GetComponent<SkillInfos>().skillsInfos[0];
 
-            //There surely is a better way to do this, but it works...
             sInfos.Type = skillsDBCopy[i].Type;
             sInfos.Name = skillsDBCopy[i].Name;
             sInfos.Cost = skillsDBCopy[i].Cost;
@@ -85,7 +82,6 @@ public class Shop : MonoBehaviour
             g = Instantiate(terrorTemplate,terrorOrganization);
             var tInfos = g.GetComponent<TerrorInfos>().terrorInfos[0];
 
-            //There surely is a better way to do this, but it works...
             tInfos.Type = terrorDBCopy[i].Type;
             tInfos.Name = terrorDBCopy[i].Name;
             tInfos.Cost = terrorDBCopy[i].Cost;
