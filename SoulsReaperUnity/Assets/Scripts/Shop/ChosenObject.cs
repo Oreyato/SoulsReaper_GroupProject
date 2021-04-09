@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChosenPanel : MonoBehaviour
+public class ChosenObject : MonoBehaviour
 {
     private int buy = 0;
     private float souls = 0f;
