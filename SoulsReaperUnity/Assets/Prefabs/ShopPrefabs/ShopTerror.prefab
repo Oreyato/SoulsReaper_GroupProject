@@ -456,9 +456,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2927771205955556124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b752ab359bc30e24e98a075496027fcd, type: 3}
+  m_Script: {fileID: 11500000, guid: b9d19564f9bd22845a09e0e223e525aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrorInfos: []
 --- !u!1 &5652042503983788872
 GameObject:
   m_ObjectHideFlags: 0
