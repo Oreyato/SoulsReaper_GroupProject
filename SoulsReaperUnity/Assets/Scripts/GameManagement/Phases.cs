@@ -29,6 +29,19 @@ public class Phases : MonoBehaviour
     private float sZ = 0f;
     private float soulHeight = 0f;
 
+    [SerializeField] private GameObject sSpawnerCimetery;
+    [Range(0f, 50f)] [SerializeField] private float rangec;
+    private float scX = 0f;
+    private float scZ = 0f;
+    private float soulcHeight = 0f;
+
+    [Header("Enemy Management")]
+    [SerializeField] private GameObject EnemySpawner;
+    [SerializeField] private GameObject enemy;
+    private float eX = 0f;
+    private float eZ = 0f;
+    private float enemyHeight = 0f;
+
 
     #endregion
     #region Unity Methods
@@ -40,6 +53,11 @@ public class Phases : MonoBehaviour
         sZ = sSpawner.transform.position.z;
 
         soulHeight = soul.transform.position.y;
+
+        scX = sSpawnerCimetery.transform.position.x;
+        scZ = sSpawnerCimetery.transform.position.z;
+
+        soulcHeight = soul.transform.position.y;
 
     }
 
@@ -75,14 +93,15 @@ public class Phases : MonoBehaviour
 
     void Day(){
 
-
+        SouslsDispawn();
         dayNumber += 1;
         Debug.Log("Day");
     }
 
     void Night(){
-        SoulsSpawn();
         test += 1;
+        SoulsSpawn();
+        SoulsSpawnCimetery();
 
         Debug.Log("Night");
     }
@@ -96,12 +115,26 @@ public class Phases : MonoBehaviour
             float newSX = sX + randX;
             float newSZ = sZ + randZ;
 
-            Instantiate(soul, new Vector3(newSX, soulHeight, newSZ), Quaternion.identity);
+            Instantiate(soul, new Vector3(newSX, soulHeight, newSZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
         }
     }
 
     void SouslsDispawn() {
 
+    }
+
+    void SoulsSpawnCimetery()
+    {
+        for (int j = 0; j < test; j ++)
+        {
+            float randcX = Random.Range(-rangec, rangec);
+            float randcZ = Random.Range(-rangec, rangec);
+
+            float newScX = scX + randcX;
+            float newScZ = scZ + randcZ;
+
+            Instantiate(soul, new Vector3(newScX, soulcHeight, newScZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
+        }
     }
 
     void SpawnAgent()

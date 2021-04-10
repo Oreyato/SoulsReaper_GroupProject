@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             DelayFear = 0.0f;
             IsFear = false;
+            GetComponent<SphereCollider>().enabled = false;
         }
 
     }
