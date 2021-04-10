@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        SfxManager.sfxInstance.NightAmbiance.Pause();
+        SfxManager.sfxInstance.MusicNight.Pause();
+        SfxManager.sfxInstance.MusicDay.Pause();
         SceneManager.LoadScene("MainMenu");
     }
 }

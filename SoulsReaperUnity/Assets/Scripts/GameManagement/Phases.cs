@@ -96,6 +96,7 @@ public class Phases : MonoBehaviour
         if (isNight){
             waveFactor++;
             Day();
+            SfxManager.sfxInstance.Cocorico.PlayOneShot(SfxManager.sfxInstance.CocoricoSnd);
         }
         else Night();
         
