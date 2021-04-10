@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public GameObject scoreText;
-    public static float Souls = 1000;
+    public static float Souls = 0;
 
     void Update() 
     {

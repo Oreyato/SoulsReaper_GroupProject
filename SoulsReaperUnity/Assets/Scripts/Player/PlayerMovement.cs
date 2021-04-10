@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<SphereCollider>().enabled = true;
             DelayFear = 2.0f;
             IsFear = true;
+            SfxManager.sfxInstance.BouhCharacter.PlayOneShot(SfxManager.sfxInstance.BouhCharacterSnd);
         }
 
         if (DelayFear <= 0.0f)

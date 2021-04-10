@@ -19,25 +19,29 @@ public class Phases : MonoBehaviour
 
     [Header("Difficulty Management")]
     private float dScaler;
-    private int test = 1;
 
     [Header("Souls Management")]
     [SerializeField] private GameObject sSpawner;
     [SerializeField] private GameObject soul;
+    private int nbSouls = 30;
     [Range(0f, 50f)] [SerializeField] private float range;
     private float sX = 0f;
     private float sZ = 0f;
     private float soulHeight = 0f;
 
     [SerializeField] private GameObject sSpawnerCimetery;
+    private int nbSoulsCim = 10;
     [Range(0f, 50f)] [SerializeField] private float rangec;
     private float scX = 0f;
     private float scZ = 0f;
     private float soulcHeight = 0f;
 
     [Header("Enemy Management")]
-    [SerializeField] private GameObject EnemySpawner;
+    [SerializeField] private GameObject enemySpawner;
     [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject goalObject;
+    private float nbEnemy = 3;
+    private int waveFactor = 1;
     private float eX = 0f;
     private float eZ = 0f;
     private float enemyHeight = 0f;
@@ -59,11 +63,17 @@ public class Phases : MonoBehaviour
 
         soulcHeight = soul.transform.position.y;
 
+        eX = enemySpawner.transform.position.x;
+        eZ = enemySpawner.transform.position.z;
+
+        enemyHeight = soul.transform.position.y;
+
     }
 
     void Update(){
         onScreenTr += Time.deltaTime;
         codeTr += Time.deltaTime;
+        nbEnemy += (Time.deltaTime / 360) * waveFactor;
 
         //Gestion phases:
         if (codeTr >= phasesCd) {
@@ -84,22 +94,34 @@ public class Phases : MonoBehaviour
 
     void LaunchPhase(){
         if (isNight){
+            waveFactor++;
             Day();
         }
         else Night();
+        
 
+        nbEnemy = 0;
         isNight = !isNight;
     }
 
     void Day(){
+        SfxManager.sfxInstance.NightAmbiance.Pause();
+        SfxManager.sfxInstance.MusicNight.Pause();
+        SfxManager.sfxInstance.MusicDay.Play();
 
+        SpawnEnemy();
         SouslsDispawn();
         dayNumber += 1;
         Debug.Log("Day");
     }
 
     void Night(){
-        test += 1;
+        SfxManager.sfxInstance.MusicDay.Pause();
+        SfxManager.sfxInstance.NightAmbiance.Play();
+        SfxManager.sfxInstance.MusicNight.Play();
+
+        nbSouls += 10;
+        nbSoulsCim += 1;
         SoulsSpawn();
         SoulsSpawnCimetery();
 
@@ -107,7 +129,7 @@ public class Phases : MonoBehaviour
     }
 
     void SoulsSpawn() {
-        for (int i = 0; i < test; i++)
+        for (int i = 0; i < nbSouls; i++)
         {
             float randX = Random.Range(-range, range);
             float randZ = Random.Range(-range, range);
@@ -125,7 +147,7 @@ public class Phases : MonoBehaviour
 
     void SoulsSpawnCimetery()
     {
-        for (int j = 0; j < test; j ++)
+        for (int j = 0; j < nbSoulsCim; j ++)
         {
             float randcX = Random.Range(-rangec, rangec);
             float randcZ = Random.Range(-rangec, rangec);
@@ -137,9 +159,16 @@ public class Phases : MonoBehaviour
         }
     }
 
-    void SpawnAgent()
+    void SpawnEnemy()
     {
+        for (int k = 0; k < nbEnemy; k++)
+        {
+            GameObject na = (GameObject)Instantiate(enemy, new Vector3(eX, enemyHeight, eZ), Quaternion.identity);
+            na.GetComponent<AIMovement>().goal = goalObject.transform;
 
+            Invoke("SpawnAgent", Random.Range(1, 10));
+
+        }
     }
 
     #endregion

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8841866560566761911}
   - component: {fileID: 5556110840219014674}
   - component: {fileID: 7710076898027725528}
+  - component: {fileID: 5245473113991370713}
+  - component: {fileID: 2007433664007762995}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Untagged
@@ -81,3 +83,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5245473113991370713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214370449623925517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.4}
+  m_Center: {x: -0.021, y: -0.019, z: 0.38}
+--- !u!114 &2007433664007762995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214370449623925517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ab3f3006e87ca44b12b4d66e02dbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
