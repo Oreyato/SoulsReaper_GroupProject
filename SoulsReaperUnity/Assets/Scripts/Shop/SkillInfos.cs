@@ -37,8 +37,8 @@ public class SkillInfos : MonoBehaviour
 
         //g.transform.GetChild(0).GetComponent<Image>().sprite = itemsDBCopy[i].Image;
         gameObject.transform.GetChild(1).GetComponent<Text>().text = sName;
-        gameObject.transform.GetChild(2).GetComponent<Button>().interactable = sUnlocked;
-        gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = sCost.ToString() + " souls";
+        gameObject.transform.GetChild(0).GetComponent<Button>().interactable = sUnlocked;
+        //gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = sCost.ToString() + " souls";
     }
 
     void Update() {

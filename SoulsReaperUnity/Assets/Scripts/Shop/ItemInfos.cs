@@ -11,7 +11,7 @@ public class ItemInfos : MonoBehaviour
     private float souls = 0;
 
     #region ShortCuts Initialization
-    private string iName = "Null";
+    public string iName = "Null";
     private float iCost = 0f;
     private int iLimit = 0;
     private bool iUnlocked = false;
@@ -35,8 +35,8 @@ public class ItemInfos : MonoBehaviour
 
         //g.transform.GetChild(0).GetComponent<Image>().sprite = itemsDBCopy[i].Image;
         gameObject.transform.GetChild(1).GetComponent<Text>().text = iName;
-        gameObject.transform.GetChild(2).GetComponent<Button>().interactable = iUnlocked;
-        gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = iCost.ToString() + " souls";
+        gameObject.transform.GetChild(0).GetComponent<Button>().interactable = iUnlocked;
+        //gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = iCost.ToString() + " souls";
     }
 
     public void Purchase() {
