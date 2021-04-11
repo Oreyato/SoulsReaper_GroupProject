@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LifeShop : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class LifeShop : MonoBehaviour
     {
         slider.value = CalculateHealth();
 
-        if (currentHealthShop == 0)
+        if (currentHealthShop <= 0)
         {
-            
+            SfxManager.sfxInstance.NightAmbiance.Pause();
+            SfxManager.sfxInstance.MusicNight.Pause();
+            SfxManager.sfxInstance.MusicNight.Pause();
+            SceneManager.LoadScene("GameOver");
         }
     }
 
