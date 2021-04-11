@@ -13,6 +13,11 @@ public class ChosenObject : MonoBehaviour
     private string description = "Null0";
     private string description2 = "Null1";
 
+    [SerializeField] private GameObject defaultObj;
+
+    private string oName;
+    //private string oDescription;
+
     private float cost = 0f;
     private bool iUnlocked = false;
     private Texture chosenTexture;
@@ -27,8 +32,9 @@ public class ChosenObject : MonoBehaviour
         gameObject.transform.GetChild(3).GetComponent<Text>().text = nameChosen;
     }
 
-    void Start(){
-        
+    void Update(){
+        oName = defaultObj.transform.GetChild(0).GetComponent<ItemInfos>().iName;
+        gameObject.transform.GetChild(3).GetComponent<Text>().text = oName;
     }
 
 }
