@@ -35,8 +35,8 @@ public class TerrorInfos : MonoBehaviour
 
         //g.transform.GetChild(0).GetComponent<Image>().sprite = itemsDBCopy[i].Image;
         gameObject.transform.GetChild(1).GetComponent<Text>().text = tName;
-        gameObject.transform.GetChild(2).GetComponent<Button>().interactable = tUnlocked;
-        gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = tCost.ToString() + " souls";
+        gameObject.transform.GetChild(0).GetComponent<Button>().interactable = tUnlocked;
+        //gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = tCost.ToString() + " souls";
     }
 
     void Update() {
