@@ -15,30 +15,39 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ShopPanel;
     public bool IsOpenShop;
 
+    private bool isInRange = false;
+
+    public GameObject InGameUI;
+    public GameObject SharonInfo;
+
     void Start()
     {
         player = GetComponent<Rigidbody>();
         GetComponent<SphereCollider>().enabled = false;
         IsFear = false;
+        isInRange = false;
         IsOpenShop = false;
 
+        ShopPanel.SetActive(false);
+        SharonInfo.SetActive(false);
     }
 
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Shop")
         {
-            Debug.Log(IsOpenShop);
-            if (Input.GetKeyDown(KeyCode.E) && !IsOpenShop)
-            {
-                OpenShop();
-            } 
+            isInRange = true;
+
+            if (!IsOpenShop){
+                SharonInfo.SetActive(true);
+            }
         }
     }
 
     void OnTriggerExit(Collider col)
     {
         CloseShop();
+        SharonInfo.SetActive(false);
     }
 
 
@@ -52,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position += moveDirection * speed * Time.deltaTime;
         DelayFear -= Time.deltaTime;
+
+        if (isInRange && Input.GetKeyDown(KeyCode.E) && !IsOpenShop){
+            OpenShop();
+            IsOpenShop = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.F) && !IsFear)
         {
@@ -73,10 +87,14 @@ public class PlayerMovement : MonoBehaviour
     public void OpenShop()
     {
         ShopPanel.SetActive(true);
+        InGameUI.SetActive(false);
+        SharonInfo.SetActive(false);
     }
 
     public void CloseShop()
     {
+        SharonInfo.SetActive(true);
+        InGameUI.SetActive(true);
         ShopPanel.SetActive(false);
         IsOpenShop = false;
     }
