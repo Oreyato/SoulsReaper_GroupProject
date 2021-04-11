@@ -11,7 +11,7 @@ public class ItemInfos : MonoBehaviour
     private float souls = 0;
 
     #region ShortCuts Initialization
-    private string iName = "Null";
+    public string iName = "Null";
     private float iCost = 0f;
     private int iLimit = 0;
     private bool iUnlocked = false;
