@@ -4600,7 +4600,7 @@ MonoBehaviour:
   BouhCharacter: {fileID: 707270128}
   RunEnemy: {fileID: 2147285676}
   ScreamEnemy: {fileID: 1880397975}
-  SoulCollect: {fileID: 0}
+  SoulCollect: {fileID: 595977430}
   ClicButtonSnd: {fileID: 8300000, guid: f47a8f27288f9bf46b45463b6a6b66ab, type: 3}
   BackButtoSnd: {fileID: 0}
   BuyButtonSnd: {fileID: 8300000, guid: 9a2069bb68493cf45a135e3ddc894a0c, type: 3}
@@ -4615,7 +4615,7 @@ MonoBehaviour:
   BouhCharacterSnd: {fileID: 8300000, guid: c238d62f1f809ee4ca995f31b2e1f8e9, type: 3}
   RunEnemySnd: {fileID: 0}
   ScreamEnemySnd: {fileID: 8300000, guid: a55ef5bfff715f54b8d631c662bdc551, type: 3}
-  SoulCollectSnd: {fileID: 0}
+  SoulCollectSnd: {fileID: 8300000, guid: d2327d56c42d17343a42f1c057f3dc4f, type: 3}
 --- !u!4 &197103730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3317662722732417320, guid: 12659d6e448ed4d4783a2bf123cb0f91,
@@ -28545,7 +28545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b00887f3971f954d94945ed7527d76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phasesCd: 10
+  phasesCd: 1
   timerText: {fileID: 1753655291}
   dayText: {fileID: 184253259}
   clock: {fileID: 223996279}
@@ -35829,7 +35829,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 46d191e936b7c4945ba9cd47dc7626cd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.205
   m_Pitch: 1
   Loop: 0
   Mute: 0
