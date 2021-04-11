@@ -43,8 +43,13 @@ public class Phases : MonoBehaviour
     [SerializeField] private GameObject enemySpawner;
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject goalObject;
-    private float nbEnemy = 3;
-    private int waveFactor = 1;
+    private int nbEnemyPerWave = 1;
+    private float spawningSpeedEn = 0;
+
+    private int waveNumber = 1;
+    private int dayNbToGrow = 3;
+    private int euclidian = 0;
+
     private float eX = 0f;
     private float eZ = 0f;
     private float enemyHeight = 0f;
@@ -65,14 +70,14 @@ public class Phases : MonoBehaviour
         eX = enemySpawner.transform.position.x;
         eZ = enemySpawner.transform.position.z;
 
-        enemyHeight = soul.transform.position.y;
+        //enemyHeight = soul.transform.position.y;
 
     }
 
     void Update(){
         onScreenTr += Time.deltaTime;
         codeTr += Time.deltaTime;
-        nbEnemy += (Time.deltaTime / 360) * waveFactor;
+        //nbEnemyPerWave += (Time.deltaTime / 360) * waveNumber; //Not Used RN
 
         //Gestion phases:
         if (codeTr >= phasesCd) {
@@ -99,9 +104,18 @@ public class Phases : MonoBehaviour
                 spawningSpeedCim = 0;
             }
         }
+        //Enemy Spawn
+        if (!isNight) {
+            if (spawningSpeedEn >= phasesCd/waveNumber) {
+                SpawnEnemy();
+
+                spawningSpeedEn = 0;
+            }
+        }
     
         spawningSpeed++;
         spawningSpeedCim++;
+        spawningSpeedEn += Time.deltaTime;
 
         string minutes = Mathf.Floor(onScreenTr/60).ToString("00");
         string seconds = (onScreenTr % 60).ToString("00");
@@ -112,17 +126,14 @@ public class Phases : MonoBehaviour
 
     #endregion
     #region Custom Methods
-
+    #region Phases
     void LaunchPhase(){
         if (isNight){
-            waveFactor++;
             Day();
             SfxManager.sfxInstance.Cocorico.PlayOneShot(SfxManager.sfxInstance.CocoricoSnd);
         }
         else Night();
         
-
-        nbEnemy = 0;
         isNight = !isNight;
     }
 
@@ -131,9 +142,16 @@ public class Phases : MonoBehaviour
         SfxManager.sfxInstance.MusicNight.Pause();
         SfxManager.sfxInstance.MusicDay.Play();
 
-        SpawnEnemy();
+        nbEnemyPerWave += 1;
         spawnedSouls = 0;
         spawnedSoulsCim = 0;
+
+        euclidian++;
+
+        int testEuclidian = euclidian % dayNbToGrow;
+        Debug.Log(testEuclidian);
+        if (testEuclidian == 0) waveNumber++; 
+        Debug.Log(waveNumber);
 
         dayNumber += 1;
         Debug.Log("Day");
@@ -149,7 +167,8 @@ public class Phases : MonoBehaviour
 
         Debug.Log("Night");
     }
-
+    #endregion
+    #region SoulsSpawn
     void SoulsSpawn() {
         float randX = Random.Range(-range, range);
         float randZ = Random.Range(-range, range);
@@ -170,16 +189,15 @@ public class Phases : MonoBehaviour
 
         Instantiate(soul, new Vector3(newScX, soulHeight, newScZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
     }
-
+    #endregion
     void SpawnEnemy()
     {
-        for (int k = 0; k < nbEnemy; k++)
+        for (int i = 0; i < nbEnemyPerWave; i++)
         {
             GameObject na = (GameObject)Instantiate(enemy, new Vector3(eX, enemyHeight, eZ), Quaternion.identity);
             na.GetComponent<AIMovement>().goal = goalObject.transform;
 
             Invoke("SpawnAgent", Random.Range(1, 10));
-
         }
     }
 
