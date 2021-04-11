@@ -17616,7 +17616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  DelayFear: 2
   IsFear: 0
   ShopPanel: {fileID: 1809255595}
   IsOpenShop: 0
@@ -32276,7 +32275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  DelayFear: 2
   IsFear: 0
   ShopPanel: {fileID: 1809255595}
   IsOpenShop: 0

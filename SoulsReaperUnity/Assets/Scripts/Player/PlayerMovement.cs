@@ -8,12 +8,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody player;
 
-    public float DelayFear = 2.0f;
-
-    public bool IsFear = false;
+    private float DelayFear = 0;
+    public bool IsFear;
 
     public GameObject ShopPanel;
-    public bool IsOpenShop;
+    public bool IsOpenShop = false;
 
     private bool isInRange = false;
 
@@ -24,9 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Rigidbody>();
         GetComponent<SphereCollider>().enabled = false;
-        IsFear = false;
-        isInRange = false;
-        IsOpenShop = false;
 
         ShopPanel.SetActive(false);
         SharonInfo.SetActive(false);
@@ -60,28 +56,26 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = new Vector3(xDirection, 0.0f, zDirection);
 
         transform.position += moveDirection * speed * Time.deltaTime;
-        DelayFear -= Time.deltaTime;
+        DelayFear += Time.deltaTime;
 
         if (isInRange && Input.GetKeyDown(KeyCode.E) && !IsOpenShop){
             OpenShop();
             IsOpenShop = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && !IsFear)
+        if (Input.GetKeyDown(KeyCode.F) && DelayFear >= 2.0f)
         {
-            GetComponent<SphereCollider>().enabled = true;
-            DelayFear = 2.0f;
+            Debug.Log(DelayFear);
             IsFear = true;
+            GetComponent<SphereCollider>().enabled = true;
+            DelayFear = 0f;
             SfxManager.sfxInstance.BouhCharacter.PlayOneShot(SfxManager.sfxInstance.BouhCharacterSnd);
         }
 
-        if (DelayFear <= 0.0f)
-        {
-            DelayFear = 0.0f;
+        if (DelayFear < 2.0f && DelayFear > 1.0f) {
             IsFear = false;
             GetComponent<SphereCollider>().enabled = false;
         }
-
     }
 
     public void OpenShop()
