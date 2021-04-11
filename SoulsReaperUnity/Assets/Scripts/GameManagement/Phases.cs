@@ -46,7 +46,7 @@ public class Phases : MonoBehaviour
     private int nbEnemyPerWave = 1;
     private float spawningSpeedEn = 0;
 
-    private int waveNumber = 1;
+    private int waveNumber = 0;
     private int dayNbToGrow = 3;
     private int euclidian = 0;
 
@@ -129,6 +129,7 @@ public class Phases : MonoBehaviour
     #region Phases
     void LaunchPhase(){
         if (isNight){
+            waveNumber++;
             Day();
             SfxManager.sfxInstance.Cocorico.PlayOneShot(SfxManager.sfxInstance.CocoricoSnd);
         }
@@ -149,9 +150,7 @@ public class Phases : MonoBehaviour
         euclidian++;
 
         int testEuclidian = euclidian % dayNbToGrow;
-        Debug.Log(testEuclidian);
         if (testEuclidian == 0) waveNumber++; 
-        Debug.Log(waveNumber);
 
         dayNumber += 1;
         Debug.Log("Day");
@@ -194,7 +193,14 @@ public class Phases : MonoBehaviour
     {
         for (int i = 0; i < nbEnemyPerWave; i++)
         {
-            GameObject na = (GameObject)Instantiate(enemy, new Vector3(eX, enemyHeight, eZ), Quaternion.identity);
+
+            float spacing = 2;
+            float randeX = Random.Range(eX-spacing, eX+spacing);
+            float randeZ = Random.Range(eZ-spacing, eZ+spacing);
+
+            GameObject na = (GameObject)Instantiate(enemy, new Vector3(randeX, enemyHeight, randeZ), Quaternion.identity);
+
+            //GameObject na = (GameObject)Instantiate(enemy, new Vector3(eX, enemyHeight, eZ), Quaternion.identity);
             na.GetComponent<AIMovement>().goal = goalObject.transform;
 
             Invoke("SpawnAgent", Random.Range(1, 10));
