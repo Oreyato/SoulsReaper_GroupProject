@@ -194,7 +194,7 @@ public class Phases : MonoBehaviour
         for (int i = 0; i < nbEnemyPerWave; i++)
         {
 
-            float spacing = 2;
+            float spacing = 12;
             float randeX = Random.Range(eX-spacing, eX+spacing);
             float randeZ = Random.Range(eZ-spacing, eZ+spacing);
 
