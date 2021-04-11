@@ -14,7 +14,7 @@ public class Phases : MonoBehaviour
     [SerializeField] private RawImage clock;
     private float codeTr = 0f;
     private float onScreenTr = 0f;
-    private bool isNight = true;
+    public bool isNight = true;
     private int dayNumber = 1;
 
     [Header("Difficulty Management")]
@@ -24,6 +24,8 @@ public class Phases : MonoBehaviour
     [SerializeField] private GameObject sSpawner;
     [SerializeField] private GameObject soul;
     private int nbSouls = 30;
+    private int spawnedSouls = 0;
+    private int spawningSpeed = 0;
     [Range(0f, 50f)] [SerializeField] private float range;
     private float sX = 0f;
     private float sZ = 0f;
@@ -31,10 +33,11 @@ public class Phases : MonoBehaviour
 
     [SerializeField] private GameObject sSpawnerCimetery;
     private int nbSoulsCim = 10;
+    private int spawnedSoulsCim = 0;
+    private int spawningSpeedCim = 0;
     [Range(0f, 50f)] [SerializeField] private float rangec;
     private float scX = 0f;
     private float scZ = 0f;
-    private float soulcHeight = 0f;
 
     [Header("Enemy Management")]
     [SerializeField] private GameObject enemySpawner;
@@ -56,12 +59,8 @@ public class Phases : MonoBehaviour
         sX = sSpawner.transform.position.x;
         sZ = sSpawner.transform.position.z;
 
-        soulHeight = soul.transform.position.y;
-
         scX = sSpawnerCimetery.transform.position.x;
         scZ = sSpawnerCimetery.transform.position.z;
-
-        soulcHeight = soul.transform.position.y;
 
         eX = enemySpawner.transform.position.x;
         eZ = enemySpawner.transform.position.z;
@@ -81,6 +80,28 @@ public class Phases : MonoBehaviour
 
             codeTr -= phasesCd;
         }
+
+        //Souls Spawn
+        if (isNight && spawnedSouls < nbSouls) {
+            if (spawningSpeed >= 120) {
+                SoulsSpawn();
+                spawnedSouls++; 
+
+                spawningSpeed = 0;
+            }
+        }
+        //Soulsc Spawn
+        if (isNight && spawnedSoulsCim < nbSoulsCim) {
+            if (spawningSpeedCim >= 60) {
+                SoulsSpawnCimetery();
+                spawnedSoulsCim++; 
+
+                spawningSpeedCim = 0;
+            }
+        }
+    
+        spawningSpeed++;
+        spawningSpeedCim++;
 
         string minutes = Mathf.Floor(onScreenTr/60).ToString("00");
         string seconds = (onScreenTr % 60).ToString("00");
@@ -111,7 +132,9 @@ public class Phases : MonoBehaviour
         SfxManager.sfxInstance.MusicDay.Play();
 
         SpawnEnemy();
-        SouslsDispawn();
+        spawnedSouls = 0;
+        spawnedSoulsCim = 0;
+
         dayNumber += 1;
         Debug.Log("Day");
     }
@@ -123,41 +146,29 @@ public class Phases : MonoBehaviour
 
         nbSouls += 10;
         nbSoulsCim += 1;
-        SoulsSpawn();
-        SoulsSpawnCimetery();
 
         Debug.Log("Night");
     }
 
     void SoulsSpawn() {
-        for (int i = 0; i < nbSouls; i++)
-        {
-            float randX = Random.Range(-range, range);
-            float randZ = Random.Range(-range, range);
+        float randX = Random.Range(-range, range);
+        float randZ = Random.Range(-range, range);
 
-            float newSX = sX + randX;
-            float newSZ = sZ + randZ;
+        float newSX = sX + randX;
+        float newSZ = sZ + randZ;
 
-            Instantiate(soul, new Vector3(newSX, soulHeight, newSZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
-        }
-    }
-
-    void SouslsDispawn() {
-
+        Instantiate(soul, new Vector3(newSX, soulHeight, newSZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
     }
 
     void SoulsSpawnCimetery()
     {
-        for (int j = 0; j < nbSoulsCim; j ++)
-        {
-            float randcX = Random.Range(-rangec, rangec);
-            float randcZ = Random.Range(-rangec, rangec);
+        float randcX = Random.Range(-rangec, rangec);
+        float randcZ = Random.Range(-rangec, rangec);
 
-            float newScX = scX + randcX;
-            float newScZ = scZ + randcZ;
+        float newScX = scX + randcX;
+        float newScZ = scZ + randcZ;
 
-            Instantiate(soul, new Vector3(newScX, soulcHeight, newScZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
-        }
+        Instantiate(soul, new Vector3(newScX, soulHeight, newScZ), transform.rotation * Quaternion.Euler(-90, 0, 0));
     }
 
     void SpawnEnemy()
