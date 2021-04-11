@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ChosenObject : MonoBehaviour
 {
+    /*
     private int buy = 0;
     private float souls = 0f;
 
@@ -28,4 +29,5 @@ public class ChosenObject : MonoBehaviour
     {
         
     }
+    */
 }
