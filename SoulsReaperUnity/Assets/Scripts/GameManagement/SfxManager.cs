@@ -18,6 +18,7 @@ public class SfxManager : MonoBehaviour
     public AudioSource BouhCharacter;
     public AudioSource RunEnemy;
     public AudioSource ScreamEnemy;
+    public AudioSource SoulCollect;
 
 
     public AudioClip ClicButtonSnd;
@@ -34,6 +35,7 @@ public class SfxManager : MonoBehaviour
     public AudioClip BouhCharacterSnd;
     public AudioClip RunEnemySnd;
     public AudioClip ScreamEnemySnd;
+    public AudioClip SoulCollectSnd;
 
     public static SfxManager sfxInstance;
     private void Awake()

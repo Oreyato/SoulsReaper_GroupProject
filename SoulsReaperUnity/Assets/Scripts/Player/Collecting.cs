@@ -12,6 +12,8 @@ public class Collecting : MonoBehaviour
         {
             Score.Souls += 1;
             Destroy(gameObject);
+            //SfxManager.sfxInstance.SoulCollect.pitch = Random.Range(0.2, 1.5);
+            SfxManager.sfxInstance.SoulCollect.PlayOneShot(SfxManager.sfxInstance.SoulCollectSnd);
         }
 
         if (other.gameObject.tag == "Enemy")
