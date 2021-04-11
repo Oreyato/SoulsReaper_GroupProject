@@ -26,6 +26,7 @@ public class AIMovement : MonoBehaviour
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.destination = fleeZone.position;
+            SfxManager.sfxInstance.ScreamEnemy.PlayOneShot(SfxManager.sfxInstance.ScreamEnemySnd);
         }
 
         if (collider.gameObject.tag == "DestroyAI")
