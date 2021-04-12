@@ -2,5 +2,4 @@
  Souls Reaper Game - Group Project - ArtFX Students
 
 
-Build: Little Reaper.exe
- > SoulsReaper_GroupProject/SoulsReaperUnity/Little Reaper.exe
+Build: Little Reaper.exe inside the folder LittleReaperBuild.rar
