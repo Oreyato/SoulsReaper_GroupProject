@@ -28544,7 +28544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b00887f3971f954d94945ed7527d76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phasesCd: 1
+  phasesCd: 30
   timerText: {fileID: 1753655291}
   dayText: {fileID: 184253259}
   clock: {fileID: 223996279}
