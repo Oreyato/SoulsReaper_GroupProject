@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Phases : MonoBehaviour
 {
@@ -122,6 +123,10 @@ public class Phases : MonoBehaviour
 
         timerText.text = "Duration: " + minutes + ":" + seconds;
         dayText.text = "Day: " + dayNumber.ToString("00");
+
+        if(dayNumber >= 20) {
+            SceneManager.LoadScene("Win");
+        }
     }
 
     #endregion
